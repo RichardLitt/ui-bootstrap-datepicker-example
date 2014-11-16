@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel='stylesheet' href="../bower_components/bootstrap/dist/css/bootstrap.css" />
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../bower_components/moment/moment.js"></script>
+    <script src="../bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="../bower_components/angular/angular.js"></script>
+    <script src="../bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script src="app.js"></script>
+    <script src="dateService.service.js"></script>
+    <script src="datePicker.controller.js"></script>
+    <script src="view1.controller.js"></script>
+    <script src="view2.controller.js"></script>
+  </head>
+
+  <body ng-app="exampleApp" ng-controller="View1 as view1">
+  <a href="./view2.html">View2</a>
+    <form class="form-inline check-availability" role="form" onsubmit="return false;">
+  <!-- Date Fields -->
+<div class="form-group" ng-controller="DatepickerCtrl as dt" ng-cloak>
+    <span class="hidden-xs">When</span>
+    <label class="sr-only" for="arrive">Arrive</label>
+    <input 
+      autocomplete="off" 
+      class="form-control" 
+      close-text="Close" 
+      date-disabled="dt.disabled(date, mode)" 
+      datepicker-popup="{{dt.format}}" 
+      id="arrive" 
+      is-open="dt.arrive"
+      min-date="dt.arriveMinDate"
+      max-date="dt.arriveMaxDate"
+      name="arrive"
+      ng-click="dt.open('arrive')" 
+      ng-model="view1.dates.arrive" 
+      ng-required="true" 
+      placeholder="MM/DD/YYYY" 
+      type="text" 
+      readonly="readonly" 
+      />
+    <span class="arrow">to</span>
+    <label class="sr-only" for="depart">Depart</label>
+    <input
+      autocomplete="off" 
+      class="form-control" 
+      close-text="Close" 
+      date-disabled="dt.disabled(date, mode)" 
+      datepicker-popup="{{dt.format}}" 
+      id="depart" 
+      is-open="dt.depart"
+      min-date="dt.departMinDate"
+      max-date="dt.departMaxDate"
+      name="depart"
+      ng-click="dt.open('depart')" 
+      ng-model="view1.dates.depart" 
+      ng-required="true" 
+      placeholder="MM/DD/YYYY" 
+      type="text" 
+      />
+  </div>
+  </form>
+  </body>
+
+</html>
